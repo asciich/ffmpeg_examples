@@ -23,7 +23,7 @@ ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
 ## 360 degree image handling
 **See next chapter for 360 degree video handling**
 
-
+The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image.
 
 ## 360 degree video handling
 **See prevous chapter for 360 degree image hangdling**
