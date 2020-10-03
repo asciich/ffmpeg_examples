@@ -33,7 +33,8 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
 ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_left_fisheye.jpg
 ```
 Results in:
-![samsung_gear_360_left_fisheye.jpg](example_images/samsung_gear_360_left_fisheye.jpg?raw=true "samsung_gear_360_left_fisheye"){:height="50%" width="50%"}
+![samsung_gear_360_left_fisheye.jpg](example_images/samsung_gear_360_left_fisheye.jpg?raw=true "samsung_gear_360_left_fisheye")<!-- .element height="50%" width="50%" -->
+
 
 * Extract right fisheye to single image:
 
