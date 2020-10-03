@@ -10,12 +10,12 @@
 
 ## Single image handling
 
-* Extract first frame as JPG
+* Extract first frame from video as JPG
 ```
 ffmpeg -i in.mp4 -vframes 1 -q:v 2 output.jpg
 ```
 
-* Extract frame at given time (in this example after 5 seconds = 00:00:05) as JPG
+* Extract frame at given time (in this example after 5 seconds = 00:00:05) from video as JPG
 ```
 ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
 ```
@@ -25,7 +25,24 @@ ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
 
 The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image.
 
-![Alt text](example_images/samsung_gear_360_in.jpg?raw=true "samsung_gear_360_in")
+![samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg?raw=true "samsung_gear_360_in")
+
+* Extract left fisheye to single image:
+
+```
+ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_left_fisheye.jpg
+```
+Results in:
+![samsung_gear_360_left_fisheye.jpg](example_images/samsung_gear_360_left_fisheye.jpg?raw=true "samsung_gear_360_left_fisheye")
+
+* Extract right fisheye to single image:
+
+```
+ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_right_fisheye.jpg
+```
+Results in:
+![samsung_gear_360_right_fisheye.jpg](example_images/samsung_gear_360_right_fisheye.jpg?raw=true "samsung_gear_360_right_fisheye")
+
 
 ## 360 degree video handling
 **See prevous chapter for 360 degree image hangdling**
