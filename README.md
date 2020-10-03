@@ -25,7 +25,7 @@ ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
 
 The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image.
 
-![samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg?raw=true "samsung_gear_360_in")
+<img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_in.jpg" width="300" />
 
 * Extract left fisheye to single image:
 
@@ -33,8 +33,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
 ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_left_fisheye.jpg
 ```
 Results in:
-![samsung_gear_360_left_fisheye.jpg](example_images/samsung_gear_360_left_fisheye.jpg "samsung_gear_360_left_fisheye")<!-- .element height="50%" width="50%" -->
-
+<img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_left_fisheye.jpg" width="300" />
 
 * Extract right fisheye to single image:
 
@@ -42,7 +41,7 @@ Results in:
 ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_right_fisheye.jpg
 ```
 Results in:
-![samsung_gear_360_right_fisheye.jpg](example_images/samsung_gear_360_right_fisheye.jpg?raw=true "samsung_gear_360_right_fisheye")
+<img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_fisheye.jpg" width="300" />
 
 
 ## 360 degree video handling
