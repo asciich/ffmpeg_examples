@@ -25,7 +25,7 @@
 
 The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image:
 
-    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_in.jpg" height="150" />
+<img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_in.jpg" height="150" />
 
 * Extract left fisheye to single image:
 
