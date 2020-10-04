@@ -45,6 +45,31 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_fisheye.jpg" height="150" />
 
+* Equirectangular projection of left fisheye projection
+
+    ```
+    ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0,v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_left_equirectangular.jpg
+    ```
+    Results in:
+
+    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_left_equirectangular.jpg" height="150" />
+
+* Equirectangular projection of right fisheye projection
+
+    ```
+    ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:iw/2:0,v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_right_equirectangular.jpg
+    ```
+    Results in:
+
+    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_equirectangular.jpg" height="150" />
+
+    For a 180 degree rotation:
+    ```
+    ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:iw/2:0,v360=input=fisheye:output=e:yaw=180:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_right_equirectangular_yaw180.jpg
+    ```
+
+    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_equirectangular_yaw180.jpg" height="150" />
+
 
 ## 360 degree video handling
 **See prevous chapter for 360 degree image hangdling**
