@@ -4,9 +4,9 @@
 
 * Some common parameters
 
-```
--y  Automatically overwrite output file if exists. (Do not ask)
-```
+    ```
+    -y  Automatically overwrite output file if exists. (Do not ask)
+    ```
 
 ## Single image handling
 
@@ -23,9 +23,9 @@
 ## 360 degree image handling
 **See next chapter for 360 degree video handling**
 
-The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image.
+The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is used as example image:
 
-<img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_in.jpg" height="150" />
+    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_in.jpg" height="150" />
 
 * Extract left fisheye to single image:
 
