@@ -76,6 +76,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "v360=input=dfisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_equirectangular.jpg
     ```
     Results in:
+
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_equirectangular.jpg" height="150" />
 
     For 180 degree yaw rotation use:
@@ -84,12 +85,37 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_equirectangular_yaw180.jpg" height="150" />
 
+* Equirectangular projection of both fishey projections with mergemap:
 
+    Source: [http://www.astro-electronic.de/FFmpeg_Book.pdf](http://www.astro-electronic.de/FFmpeg_Book.pdf)
 
+    ```
+    # Create mergemap
+    H=1920 # Height in px
+    FOV=191.5 # FieldOfView angle in degrees
+    C=11.5 # Overlap degrees
+    ffmpeg -f lavfi -i nullsrc=size=${H}x${H} -vf "format=gray8,geq='clip(128-128/${C}*(180-${FOV}/(${H}/2)*hypot(X-${H}/2,Y-${H}/2)),0,255)',v360=input=fisheye:output=e:ih_fov=${FOV}:iv_fov=${FOV}" -frames 1 -y mergemap.png
+
+    # Transform image
+    ffmpeg -i samsung_gear_360_in.jpg -i mergemap.png -filter_complex \
+        "[0]format=bgr24[double_fisheye_in];
+        [0]format=bgr24[double_fisheye_inx];
+        [double_fisheye_in]crop=ih:iw/2:0:0[right_fisheye_in];
+        [double_fisheye_inx]crop=ih:iw/2:iw/2:0[left_fisheye_in];
+        [right_fisheye_in]v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5[right_equirectangular_part];
+        [left_fisheye_in]v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5:yaw=180[left_equirectangular_part];
+        [1]format=gbrp[c];
+        [right_equirectangular_part][left_equirectangular_part][c]maskedmerge" \
+        -y samsung_gear_360_equirectangular_mergedmask.jpg
+    ```
+
+    Results in:
+
+    <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_equirectangular_mergedmask.jpg" height="150" />
 
 
 ## 360 degree video handling
-**See prevous chapter for 360 degree image hangdling**
+**See previous chapter for 360 degree image handling**
 
 ## Sources
 
