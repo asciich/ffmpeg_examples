@@ -143,7 +143,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
 
 This example video is used (created by a Samsung Gear 360 camera):
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fqS-aQObaNI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/fqS-aQObaNI/hqdefault.jpg)](https://youtu.be/fqS-aQObaNI)
 
 * Equirectangular projection of both fisheye projections with mergemap:
 
