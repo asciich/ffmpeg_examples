@@ -56,7 +56,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_left_fisheye.jpg
     ```
-    Results in:
+    Result:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_left_fisheye.jpg" height="150" />
 
@@ -65,7 +65,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0" samsung_gear_360_right_fisheye.jpg
     ```
-    Results in:
+    Result:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_fisheye.jpg" height="150" />
 
@@ -74,7 +74,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:0:0,v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_left_equirectangular.jpg
     ```
-    Results in:
+    Result:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_left_equirectangular.jpg" height="150" />
 
@@ -83,7 +83,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "crop=ih:iw/2:iw/2:0,v360=input=fisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_right_equirectangular.jpg
     ```
-    Results in:
+    Result:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_right_equirectangular.jpg" height="150" />
 
@@ -99,7 +99,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
     ```
     ffmpeg -i samsung_gear_360_in.jpg -filter_complex "v360=input=dfisheye:output=e:ih_fov=191.5:iv_fov=191.5" samsung_gear_360_equirectangular.jpg
     ```
-    Results in:
+    Results:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_equirectangular.jpg" height="150" />
 
@@ -133,7 +133,7 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
         -y samsung_gear_360_equirectangular_mergedmask.jpg
     ```
 
-    Results in:
+    Result:
 
     <img src="https://raw.githubusercontent.com/asciich/ffmpeg_examples/main/example_images/samsung_gear_360_equirectangular_mergedmask.jpg" height="150" />
 
@@ -169,6 +169,13 @@ This example video is used (created by a Samsung Gear 360 camera):
         -c:v libx265  -b:v 40000k -preset ultrafast samsung_gear_360_equirectangular_mergedmask.mp4
     ```
 
+    Result:
+
+    [![Watch the video](https://img.youtube.com/vi/vBUfldo4JuU/mqdefault.jpg)](https://youtu.be/vBUfldo4JuU)
+
+    Result as 360 degree video (correct metadata added before uploading to Youtube):
+
+    [![Watch the video](https://img.youtube.com/vi/fZoOJqdZ18s/mqdefault.jpg)](https://youtu.be/fZoOJqdZ18s)
 
 ## Sources
 
