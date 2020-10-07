@@ -8,6 +8,30 @@
     -y  Automatically overwrite output file if exists. (Do not ask)
     ```
 
+## Video handling
+
+
+### Reduce video file size (same resolution)
+
+Using H.265 codec (or H.264 if faster encoding time is needed) to significantly reduce video file size without lowering the quality noticeably.
+Resulting file size should be less than 35% of original file size.
+
+* Reduce file size by using H.265 codec (slower encoding but smaller video than H.254)
+    ```
+    ffmpeg -i in.MP4 -c:v libx265 -pix_fmt yuv420p -crf 24 out.mp4
+    ```
+
+* Reduce file size even more and speed up H.265 encoding with minimal quality reduction:
+    ```
+    ffmpeg -i in.MP4 -c:v libx265 -pix_fmt yuv420p -crf 24 -preset ultrafast out.mp4
+    ```
+
+* Reduce file size by using H.264 codec (faster encoding than H.265 but smaller files)
+    ```
+    ffmpeg -i in.MP4 -c:v libx264 -pix_fmt yuv420p -crf 24 out.mp4
+    ```
+
+
 ## Single image handling
 
 * Extract first frame from video as JPG
@@ -145,3 +169,4 @@ The [samsung_gear_360_in.jpg](example_images/samsung_gear_360_in.jpg) image is u
 ## Sources
 
 * [FFMPEG Filters Documentation](https://ffmpeg.org/ffmpeg-filters.html)
+* [http://www.astro-electronic.de/FFmpeg_Book.pdf](http://www.astro-electronic.de/FFmpeg_Book.pdf)
