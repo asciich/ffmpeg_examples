@@ -10,6 +10,13 @@
 
 ## Video handling
 
+### Extract part of video
+
+Use ```-ss``` to set the start time, ```-t``` to set the duration:
+
+```
+ffmpeg -ss 00:00:10 -i in.mp4 -t 00:00:20 -c:v copy out.mp4
+```
 
 ### Reduce video file size (same resolution)
 
@@ -18,17 +25,17 @@ Resulting file size should be less than 35% of original file size.
 
 * Reduce file size by using H.265 codec (slower encoding but smaller video than H.254)
     ```
-    ffmpeg -i in.MP4 -c:v libx265 -pix_fmt yuv420p -crf 24 out.mp4
+    ffmpeg -i in.mp4 -c:v libx265 -pix_fmt yuv420p -crf 24 out.mp4
     ```
 
 * Reduce file size even more and speed up H.265 encoding with minimal quality reduction:
     ```
-    ffmpeg -i in.MP4 -c:v libx265 -pix_fmt yuv420p -crf 24 -preset ultrafast out.mp4
+    ffmpeg -i in.mp4 -c:v libx265 -pix_fmt yuv420p -crf 24 -preset ultrafast out.mp4
     ```
 
 * Reduce file size by using H.264 codec (faster encoding than H.265 but smaller files)
     ```
-    ffmpeg -i in.MP4 -c:v libx264 -pix_fmt yuv420p -crf 24 out.mp4
+    ffmpeg -i in.mp4 -c:v libx264 -pix_fmt yuv420p -crf 24 out.mp4
     ```
 
 
