@@ -33,7 +33,7 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -i in.mp4 -c:v libx265 -pix_fmt yuv420p -crf 24 -preset ultrafast out.mp4
     ```
 
-* Reduce file size by using H.264 codec (faster encoding than H.265 but smaller files)
+* Reduce file size by using H.264 codec (faster encoding than H.265 but bigger files)
     ```
     ffmpeg -i in.mp4 -c:v libx264 -pix_fmt yuv420p -crf 24 out.mp4
     ```
