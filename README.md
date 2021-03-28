@@ -56,7 +56,7 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
     ```
 
-* Combine images to movie showing three images per secondes at a replay framerate of 30 images per second:
+* Combine images to movie showing three images per second at a replay framerate of 30 images per second:
     ```
     ffmpeg -r 3 -i input%03d.jpg -c:v libx264 -vf fps=30 -pix_fmt yuv420p out.mp4
     ```
