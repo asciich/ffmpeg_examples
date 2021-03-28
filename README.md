@@ -46,9 +46,19 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -i in.mp4 -vframes 1 -q:v 2 output.jpg
     ```
 
+* Extract all frames from video as JPG
+    ```
+    ffmpeg -i in.mp4 -q:v 2 output%03d.jpg
+    ```
+
 * Extract frame at given time (in this example after 5 seconds = 00:00:05) from video as JPG
     ```
     ffmpeg -ss 00:00:05 -i in.mp4 -vframes 1 -q:v 2 output.jpg
+    ```
+
+* Combine images to movie showing three images per secondes at a replay framerate of 30 images per second:
+    ```
+    ffmpeg -r 3 -i input%03d.jpg -c:v libx264 -vf fps=30 -pix_fmt yuv420p out.mp4
     ```
 
 ## 360 degree image handling
