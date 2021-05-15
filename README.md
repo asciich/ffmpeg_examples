@@ -38,6 +38,12 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -i in.mp4 -c:v libx264 -pix_fmt yuv420p -crf 24 out.mp4
     ```
 
+### Resize video
+
+* Convert to full hd keeping aspect ratio (add black bars if needed). (Source):
+    ```
+    ffmpeg -i in -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1" out.mp4
+    ```
 
 ## Single image handling
 
