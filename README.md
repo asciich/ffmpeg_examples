@@ -15,7 +15,7 @@
 Use ```-ss``` to set the start time, ```-t``` to set the duration:
 
 ```
-ffmpeg -ss 00:00:10 -i in.mp4 -t 00:00:20 -c:v copy out.mp4
+ffmpeg -ss 00:00:10 -i in.mp4 -t 00:00:20 -c:av copy out.mp4
 ```
 
 ### Reduce video file size (same resolution)
@@ -200,7 +200,31 @@ This example video is used (created by a Samsung Gear 360 camera):
 
     [![Watch the video](https://img.youtube.com/vi/fZoOJqdZ18s/mqdefault.jpg)](https://youtu.be/fZoOJqdZ18s)
 
+## DVD
+
+* Rip a dvd:
+    1. Use `dvdbackup` to copy the complete dvd to your local working directory:
+    ```bash
+    dvdbackup -i /dev/dvd -o . -M
+    ```
+    1. Extract DVD menu as single image:
+    ```bash
+    ffmpeg -i VTS_07_0.VOB -vframes 1 -q:v 2 dvd-menu.jpg
+    ```
+    1. Use `ffmpeg` to convert all VOB to a single `mp4`:
+    ```bash
+    ffmpeg -i "concat:$(ls VTS_*.VOB | tail -n +2 | xargs echo | sed 's#\ #\|#g')" -vcodec libx264 dvd.mp4
+    ```
+
+## Audio CD
+
+* Rip audio cd as MP3:
+```bash
+cdparanoia -B
+```
+
 ## Sources
 
 * [FFMPEG Filters Documentation](https://ffmpeg.org/ffmpeg-filters.html)
 * [http://www.astro-electronic.de/FFmpeg_Book.pdf](http://www.astro-electronic.de/FFmpeg_Book.pdf)
+
