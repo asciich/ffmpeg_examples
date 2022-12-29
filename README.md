@@ -67,6 +67,13 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -r 3 -i input%03d.jpg -c:v libx264 -vf fps=30 -pix_fmt yuv420p out.mp4
     ```
 
+## Audio files handling
+
+* concat two MP3 files:
+    ```
+    ffmpeg -i "concat:file1.mp3|file2.mp3" -acodec copy output.mp3
+    ```
+
 ## 360 degree image handling
 **See next chapter for 360 degree video handling**
 
@@ -215,13 +222,22 @@ This example video is used (created by a Samsung Gear 360 camera):
     ```bash
     ffmpeg -i "concat:$(ls VTS_*.VOB | tail -n +2 | xargs echo | sed 's#\ #\|#g')" -vcodec libx264 dvd.mp4
     ```
+    1. Optional: Split video in chapters:
+    ```bash
+    ./cut-dvd-by-chapters.py
+    ```
 
 ## Audio CD
 
 * Rip audio cd as MP3:
-```bash
-cdparanoia -B
-```
+    1. Rip as WAF files:
+    ```bash
+    cdparanoia -B
+    ```
+    1. Convert to MP3
+    ```bash
+    ls *.wav | xargs -n1 lame
+    ```
 
 ## Sources
 
