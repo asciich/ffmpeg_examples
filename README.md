@@ -45,6 +45,20 @@ Resulting file size should be less than 35% of original file size.
     ffmpeg -i in -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1" out.mp4
     ```
 
+### Concat several video files
+
+1. Create a file containing all files to concat:
+```bash
+# content of parts.txt
+file 'a.mp4'
+file 'b.mp4'
+file 'c.mp4'
+```
+2. Concat video:
+```bash
+ffmpeg -f concat -safe 0 -i parts.txt -c copy output.mp4
+```
+
 ## Single image handling
 
 * Extract first frame from video as JPG
