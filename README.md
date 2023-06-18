@@ -15,7 +15,7 @@
 Use ```-ss``` to set the start time, ```-t``` to set the duration:
 
 ```
-ffmpeg -ss 00:00:10 -i in.mp4 -t 00:00:20 -c:av copy out.mp4
+ffmpeg -ss 00:00:10 -i in.mp4 -t 00:00:20 -c:a copy -c:v copy out.mp4
 ```
 
 ### Reduce video file size (same resolution)
